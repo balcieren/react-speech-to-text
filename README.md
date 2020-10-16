@@ -4,11 +4,10 @@
 
 ## Packages
 
-[react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
-[styled-components](https://www.npmjs.com/package/styled-components)
-[react-toastify](https://www.npmjs.com/package/react-toastify)
-[react-spinners](https://www.npmjs.com/package/react-spinners)
-[box-icons](https://boxicons.com/)
+_[react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
+_[styled-components](https://www.npmjs.com/package/styled-components)
+_[react-toastify](https://www.npmjs.com/package/react-toastify)
+_[react-spinners](https://www.npmjs.com/package/react-spinners) \*[box-icons](https://boxicons.com/)
 
 In the project directory, you can run , firstly `yarn` or `npm install`, after that `yarn start` or `npm run start`
 
