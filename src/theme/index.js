@@ -28,7 +28,10 @@ html body{
     font-family: 'Poppins', sans-serif;
     background-color:rgb(${theme.colors.background});
     color:#ffffff;
-    display:grid;
+    display:flex;
+    width:100%;
+    align-content:center;
+    justify-content:center;
     min-height:100vh;
      overflow:visible;
      p{

@@ -5,8 +5,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30rem;
   border-radius: 30px;
+  margin: 0.5rem;
   padding: 0.5rem;
   background-color: rgb(${({ theme }) => theme.colors.layout});
   box-shadow: 0px 5px 10px 2px rgba(${({ theme }) => theme.colors.layout}, 0.5);
