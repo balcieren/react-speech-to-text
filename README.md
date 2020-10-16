@@ -10,7 +10,9 @@
 
 [react-toastify](https://www.npmjs.com/package/react-toastify)
 
-[react-spinners](https://www.npmjs.com/package/react-spinners) \*[box-icons](https://boxicons.com/)
+[react-spinners](https://www.npmjs.com/package/react-spinners)
+
+[box-icons](https://boxicons.com/)
 
 In the project directory, you can run , firstly `yarn` or `npm install`, after that `yarn start` or `npm run start`
 
