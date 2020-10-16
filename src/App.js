@@ -1,26 +1,118 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import styled from "styled-components";
+
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+
+import Card from "./components/Card";
+
+import Button from "./components/Button";
+
+import { PuffLoader } from "react-spinners";
+
+import { ColorPicker } from "./theme";
+
+import { toast } from "react-toastify";
+
+export default function App() {
+  const { transcript, resetTranscript, listening } = useSpeechRecognition();
+
+  const microphoneOn = () => {
+    SpeechRecognition.startListening({ continuous: true });
+    toast.success("Microphone On", { autoClose: 1500 });
+  };
+
+  const microphoneOff = () => {
+    SpeechRecognition.stopListening();
+    toast.error("Microphone Off", { autoClose: 1500 });
+  };
+
+  const resetParagraph = () => {
+    resetTranscript();
+    toast.info("Paragraph was reseted", { autoClose: 1500 });
+  };
+
+  const Microphone = () => {
+    return (
+      <Button
+        color={!listening ? "success" : "danger"}
+        onClick={!listening ? microphoneOn : microphoneOff}
+      >
+        <box-icon
+          name={!listening ? "microphone" : "microphone-off"}
+          color="white"
+        />
+      </Button>
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Card.Container>
+        <Card.Top>
+          <Title>React Speech To Text</Title>
+        </Card.Top>
+        <Card.Content>
+          <Paragraph>
+            {transcript
+              ? transcript
+              : "Press to microphone button and start to speech."}
+          </Paragraph>
+        </Card.Content>
+        <Card.Bottom>
+          <BottomContainer>
+            <LoadingBox>
+              <PuffLoader
+                size={50}
+                loading={listening}
+                color={`rgb(${ColorPicker("primary")})`}
+              />
+            </LoadingBox>
+
+            <ButtonBox>
+              <Microphone />
+              <Button color="primary" onClick={resetParagraph}>
+                <box-icon name="reset" color="white" />
+              </Button>
+            </ButtonBox>
+          </BottomContainer>
+        </Card.Bottom>
+      </Card.Container>
+    </Container>
   );
 }
 
-export default App;
+const Container = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Title = styled.h2`
+  padding: 0.5rem;
+`;
+
+const Paragraph = styled.p`
+  padding: 0.5rem;
+`;
+
+const ButtonBox = styled.div`
+  display: flex;
+  column-gap: 0.5rem;
+  padding: 0.5em;
+`;
+
+const BottomContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const LoadingBox = styled.div``;
