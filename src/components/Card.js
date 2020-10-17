@@ -11,6 +11,10 @@ const Container = styled.div`
   background-color: rgb(${({ theme }) => theme.colors.layout});
   box-shadow: 0px 5px 10px 2px rgba(${({ theme }) => theme.colors.layout}, 0.5);
   row-gap: 0.5rem;
+  width: 30rem;
+  @media screen and (max-width: 430px) {
+    width: 20rem;
+  } ;
 `;
 
 const Top = styled.div`
