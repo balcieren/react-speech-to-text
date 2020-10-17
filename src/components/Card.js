@@ -12,7 +12,7 @@ const Container = styled.div`
   box-shadow: 0px 5px 10px 2px rgba(${({ theme }) => theme.colors.layout}, 0.5);
   row-gap: 0.5rem;
   width: 30rem;
-  @media screen and (max-width: 430px) {
+  @media only screen and (max-width: 430px) {
     width: 20rem;
   } ;
 `;
